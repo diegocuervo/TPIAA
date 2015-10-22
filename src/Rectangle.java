@@ -10,8 +10,8 @@ public class Rectangle implements Shape
     private boolean filled = false;
     private double x;
     private double y;
-    private double width;
-    private double height;
+    protected double width;
+    protected double height;
 
     /**
        Constructs an empty rectangle.
