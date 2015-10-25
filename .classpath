@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Diego Cuervo/Downloads/graphics.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/graphics.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
