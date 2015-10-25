@@ -9,6 +9,7 @@ public class CampoDeJuego {
 	private List<CargaPuntual> cargas;
 	private Double ancho;
 	private Double alto;
+	private Rectangle rect;
 	
 	/**
 	 * Inicializa un campo de juego con cargas posicionadas al azar
@@ -26,18 +27,33 @@ public class CampoDeJuego {
 		}
 		this.setAlto(alto);
 		this.setAncho(ancho);
+		this.rect = new Rectangle(0,0,ancho,alto);
 		
 	}
 	
 	public void dibujar(){
-		Rectangle rect = new Rectangle(0,0,ancho,alto);
-		
+
 		rect.draw();
 		
 		for (CargaPuntual carga : this.getCargas()) {
 			carga.dibujar();
 		}
 		
+	}
+	
+	public void actualizar(){
+		for (CargaPuntual carga : this.getCargas()) {
+			carga.actualizar();
+		}
+	}
+	
+	public void iterarCargas(){
+		for (CargaPuntual carga : this.getCargas()) {
+			carga.calcularDeplazamiento(this.getCargas());
+		}
+		for (CargaPuntual carga : this.getCargas()) {
+			carga.mover();
+		}
 	}
 	
 	/**
