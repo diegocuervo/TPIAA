@@ -1,11 +1,12 @@
 package negocio;
 
-import graphics.Rectangle;
-
-
 public class Main {
 	public static void main(String[] args) {
-		Rectangle r = new Rectangle(10, 10, 25, 40);
-		r.draw();
+		
+		CampoDeJuego campo = new CampoDeJuego(new Double(100), 10, new Double(500), new Double(750));
+		
+		campo.dibujar();
+		
+		
 	}
 }

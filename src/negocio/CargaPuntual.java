@@ -1,11 +1,12 @@
 package negocio;
 
-import java.util.Random;
+import graphics.Ellipse;
 
 public class CargaPuntual {
 	private Double carga;
 	private Double posX;
 	private Double posY;
+	private static Double RADIO_CHICO = new Double(3);
 	
 	/**
 	 * Inicializa el campo en una posición al azar dentro del campo de juego con ancho y alto especificado
@@ -17,6 +18,20 @@ public class CargaPuntual {
 		this.setPosY(Math.random() * maxAlto);
 	}
 
+	public void dibujar(){
+		Ellipse carga = new Ellipse(this.getPosX()-RADIO_CHICO, 
+									this.getPosY()-RADIO_CHICO, 
+									RADIO_CHICO*2, 
+									RADIO_CHICO*2);
+		Ellipse radio = new Ellipse(this.getPosX()-this.getCarga(), 
+									this.getPosY()-this.getCarga(), 
+									this.getCarga()*2, 
+									this.getCarga()*2);
+		
+		carga.draw();
+		radio.draw();
+	}
+	
 	/**
 	 * @return the carga
 	 */
@@ -58,6 +73,5 @@ public class CargaPuntual {
 	public void setPosY(Double posY) {
 		this.posY = posY;
 	}
-	
 	
 }

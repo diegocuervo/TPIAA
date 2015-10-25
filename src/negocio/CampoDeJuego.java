@@ -1,5 +1,7 @@
 package negocio;
 
+import graphics.Rectangle;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,6 @@ public class CampoDeJuego {
 	private List<CargaPuntual> cargas;
 	private Double ancho;
 	private Double alto;
-	
 	
 	/**
 	 * Inicializa un campo de juego con cargas posicionadas al azar
@@ -25,6 +26,17 @@ public class CampoDeJuego {
 		}
 		this.setAlto(alto);
 		this.setAncho(ancho);
+		
+	}
+	
+	public void dibujar(){
+		Rectangle rect = new Rectangle(0,0,ancho,alto);
+		
+		rect.draw();
+		
+		for (CargaPuntual carga : this.getCargas()) {
+			carga.dibujar();
+		}
 		
 	}
 	
