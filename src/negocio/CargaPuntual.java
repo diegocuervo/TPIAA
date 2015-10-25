@@ -1,5 +1,6 @@
 package negocio;
 
+import java.beans.DesignMode;
 import java.util.List;
 
 import graphics.Ellipse;
@@ -13,6 +14,8 @@ public class CargaPuntual {
 	private Desplazamiento desplazamiento;
 	private Ellipse puntoCarga;
 	private Ellipse radio;
+	private Double maxAncho;
+	private Double maxAlto;
 	
 	
 	/**
@@ -33,6 +36,9 @@ public class CargaPuntual {
 				this.getPosY()-this.getCarga(), 
 				this.getCarga()*2, 
 				this.getCarga()*2);
+		
+		this.maxAlto = maxAlto;
+		this.maxAncho = maxAncho;
 	}
 
 	public void dibujar(){
@@ -42,14 +48,18 @@ public class CargaPuntual {
 	}
 	
 	public void actualizar(){
+		if (this.posX == this.maxAncho || this.posX == 0) {
+			this.desplazamiento.setX(new Double(0));
+		} 
+		if (this.posY == this.maxAlto || this.posY == 0){
+			this.desplazamiento.setY(new Double(0));
+		}
 		this.puntoCarga.translate(this.desplazamiento.getX(), this.desplazamiento.getY());
 		this.radio.translate(this.desplazamiento.getX(), this.desplazamiento.getY());
+
 	}
 	
 	public void calcularDeplazamiento(List<CargaPuntual> cargas){
-		
-		Double x = new Double(0);
-		Double y = new Double(0);
 		
 		Desplazamiento despl = new Desplazamiento(new Double(0), new Double(0));
 		
@@ -63,12 +73,40 @@ public class CargaPuntual {
 			}
 		}
 		
+		if (this.posX + this.desplazamiento.getX() > this.maxAncho) {
+			this.desplazamiento.setX(this.maxAncho - this.posX);
+		} else if (this.posX + this.desplazamiento.getX() < 0) {
+			this.desplazamiento.setX(0-this.posX);
+		}
+		
+		if (this.posY + this.desplazamiento.getY() > this.maxAlto) {
+			this.desplazamiento.setY(this.maxAlto - this.posY);
+		}else if (this.posY + this.desplazamiento.getY() < 0){
+			this.desplazamiento.setY(0-this.posY);
+		}
+		
 		this.setDesplazamiento(despl);
 	}
 	
 	public void mover(){
-		this.setPosX(this.posX + desplazamiento.getX());
-		this.setPosY(this.posY + desplazamiento.getY());
+		
+		Double destinox = this.posX + desplazamiento.getX();
+		Double destinoy = this.posY + desplazamiento.getY();
+		
+		if (destinox > this.maxAncho) {
+			destinox = this.maxAncho;
+		} else if (destinox < 0){
+			destinox = new Double(0);
+		}
+		
+		if (destinoy > this.maxAlto) {
+			destinoy = this.maxAlto;
+		} else if (destinoy < 0){
+			destinoy = new Double(0);
+		}
+		
+		this.setPosX(destinox);
+		this.setPosY(destinoy);
 	}
 	
 	public Desplazamiento versorDireccionOtraCarga(CargaPuntual cp){

@@ -1,5 +1,6 @@
 package negocio;
 
+import graphics.Color;
 import graphics.Rectangle;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class CampoDeJuego {
 	public void dibujar(){
 
 		rect.draw();
+		rect.setColor(new Color(0, 100, 0));
+		rect.fill();
 		
 		for (CargaPuntual carga : this.getCargas()) {
 			carga.dibujar();

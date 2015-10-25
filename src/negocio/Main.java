@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 	public static void main(String[] args) throws InterruptedException {
 		
-		CampoDeJuego campo = new CampoDeJuego(new Double(100), 10, new Double(500), new Double(750));
+		CampoDeJuego campo = new CampoDeJuego(new Double(100), 15, new Double(500), new Double(750));
 		
 		campo.dibujar();
 		
@@ -14,6 +14,8 @@ public class Main {
 	    	campo.iterarCargas();
 			campo.actualizar();
 		}
+		
+		System.out.println("HOla");
 		
 	}
 }
