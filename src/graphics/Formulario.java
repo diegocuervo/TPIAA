@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import negocio.CampoDeJuego;
 public class Formulario extends JFrame implements ActionListener{
     private JTextField textfield1,textfield2, textfield3;
     private JButton boton1;
@@ -58,9 +60,10 @@ public class Formulario extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==boton1) {
           //aca iria el evento de crear una cancha y el aspersor
-        	int ancho =Integer.parseInt(textfield1.getText());
-        	int alto = Integer.parseInt(textfield2.getText()); 
-        	Cancha cancha = new Cancha(ancho, alto);
+        	Double ancho =Double.parseDouble(textfield1.getText());
+        	Double alto = Double.parseDouble(textfield2.getText());
+        	Double radio = Double.parseDouble(textfield3.getText());
+        	CampoDeJuego cancha = new CampoDeJuego(radio,5,ancho, alto);
         	cancha.dibujar();
         }
     }
