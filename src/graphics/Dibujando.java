@@ -1,6 +1,6 @@
+package graphics;
+
 import java.util.concurrent.TimeUnit;
-
-
 
 public class Dibujando {
 

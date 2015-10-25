@@ -1,5 +1,5 @@
+package graphics;
 
-//HIDE
 public class ColorPictures
 {
     private int red;

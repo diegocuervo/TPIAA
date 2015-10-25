@@ -1,4 +1,5 @@
-//HIDE
+package graphics;
+
 import java.awt.Graphics2D;
 
 /**
