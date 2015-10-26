@@ -1,11 +1,23 @@
 package negocio;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
+
+		Properties prop = new Properties();
+		InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties");
+		prop.load(input);
 		
-		CampoDeJuego campo = new CampoDeJuego(new Double(100), 15, new Double(500), new Double(750));
+		Double carga = new Double(prop.getProperty("carga"));
+		Integer cantCargas = new Integer(prop.getProperty("cantidadCargas"));
+		Double ancho = new Double(prop.getProperty("anchoCampo"));
+		Double alto = new Double(prop.getProperty("altoCampo"));
+		
+		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto);
 		
 		campo.dibujar();
 		
@@ -14,8 +26,6 @@ public class Main {
 	    	campo.iterarCargas();
 			campo.actualizar();
 		}
-		
-		System.out.println("HOla");
 		
 	}
 }
