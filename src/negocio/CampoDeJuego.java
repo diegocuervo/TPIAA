@@ -59,6 +59,15 @@ public class CampoDeJuego {
 		}
 	}
 	
+	public Double areaTotal(){
+		return this.alto * this.ancho;
+	}
+	
+	public Double areaCubierta(){
+		//TODO
+		return null;
+	}
+	
 	/**
 	 * @return the cargas
 	 */

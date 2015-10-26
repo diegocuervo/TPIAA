@@ -3,6 +3,7 @@ package negocio;
 import java.beans.DesignMode;
 import java.util.List;
 
+import graphics.Color;
 import graphics.Ellipse;
 
 public class CargaPuntual {
@@ -45,6 +46,7 @@ public class CargaPuntual {
 		
 		this.puntoCarga.draw();
 		this.radio.draw();
+		this.radio.setColor(new Color(0, 0, 200));
 	}
 	
 	public void actualizar(){
@@ -126,6 +128,46 @@ public class CargaPuntual {
 	
 	public Double distancia(CargaPuntual cp){
 		return Math.sqrt(((this.posX - cp.posX)*(this.posX - cp.posX)) + ((this.posY-cp.posY)*(this.posY-cp.posY)));
+	}
+	
+	public Double areaCubierta(List<CargaPuntual> cargas){
+		//TODO
+		return null;
+	}
+	
+	public Double areaDentroDelCampo(){
+		//Fuera hacia la izquierda
+		if (this.posX - this.carga < 0){
+			return this.areaCircular(this.carga) - areaFuera(this.carga, this.carga - this.posX);
+		}
+		//Fuera hacia la izquierda
+		if (this.posX + this.carga > this.maxAncho) {
+			return this.areaCircular(this.carga) - areaFuera(this.carga, this.carga + this.posX - this.maxAncho);
+		}
+		//Fuera hacia abajo
+		if (this.posY + this.carga > this.maxAlto) {
+			return this.areaCircular(this.carga) - areaFuera(this.carga, this.posY + this.carga - this.maxAlto);
+		}
+		//Fuera hacia arriba
+		if (this.posY - this.carga < 0) {
+			return this.areaCircular(this.carga) - areaFuera(this.carga, this.carga - this.posY);
+		}
+		//Totalmente adentro del campo
+		return this.areaCircular(this.carga);
+	}
+	
+	/**
+	 * Fórmula citada en el paper
+	 * @param r Radio del círculo
+	 * @param k Porción del radio fuera del campo
+	 * @return área fuera del campo
+	 */
+	private Double areaFuera(Double r, Double k){
+		return (r*r*Math.acos((r-k)/r))-((r-k)*Math.sqrt(2*k*r-(r*r))) ;
+	}
+	
+	private Double areaCircular(Double r){
+		return Math.PI*r*r;
 	}
 	
 	public boolean equals(CargaPuntual c) {
