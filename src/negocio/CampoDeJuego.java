@@ -6,6 +6,8 @@ import graphics.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
+import sun.security.krb5.internal.crypto.Des;
+
 public class CampoDeJuego {
 	private List<CargaPuntual> cargas;
 	private Double ancho;
@@ -57,6 +59,47 @@ public class CampoDeJuego {
 		for (CargaPuntual carga : this.getCargas()) {
 			carga.mover();
 		}
+	}
+	
+	public Boolean estaCubiertoPorUnAspersor(Double x, Double y){
+		for (CargaPuntual carga : this.getCargas()) {
+			if (carga.cubreElPunto(x, y)) 
+				return true;
+		}
+		return false;
+	}
+	
+	public Double porcentajeCubiertoMonteCarlo(Integer muestras){
+		
+		List<Desplazamiento> puntosMuestreo = this.generarPuntosMuestreo(muestras);
+		
+		Integer cantidadCubierta = this.cantidadDePuntosCubierta(puntosMuestreo);
+		
+		Double porcentaje = (new Double(cantidadCubierta) / new Double(muestras)) * 100;
+
+		return porcentaje;
+	}
+	
+	private List<Desplazamiento> generarPuntosMuestreo(Integer cantidad){
+		
+		List<Desplazamiento> puntos = new ArrayList<Desplazamiento>();
+		
+		for (int i = 0; i < cantidad; i++) {
+			Desplazamiento punto = new Desplazamiento(Math.random() * this.ancho, Math.random() * this.alto);
+			puntos.add(punto);
+		}
+		
+		return puntos;
+	}
+	
+	private Integer cantidadDePuntosCubierta(List<Desplazamiento> puntos){
+		Integer cant = 0;
+		for (Desplazamiento despl : puntos) {
+			if (this.estaCubiertoPorUnAspersor(despl.getX(), despl.getY())) {
+				cant++;
+			}
+		}
+		return cant;
 	}
 	
 	public Double areaTotal(){

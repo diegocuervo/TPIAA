@@ -127,7 +127,12 @@ public class CargaPuntual {
 	}
 	
 	public Double distancia(CargaPuntual cp){
-		return Math.sqrt(((this.posX - cp.posX)*(this.posX - cp.posX)) + ((this.posY-cp.posY)*(this.posY-cp.posY)));
+		return this.distancia(cp.posX, cp.posY);
+	}
+	
+	public Double distancia(Double x, Double y){
+		return Math.sqrt(((this.posX - x)*(this.posX - x)) + ((this.posY - y)*(this.posY - y)));
+
 	}
 	
 	public Double areaCubierta(List<CargaPuntual> cargas){
@@ -172,6 +177,10 @@ public class CargaPuntual {
 	
 	public boolean equals(CargaPuntual c) {
 		return this.getPosX().equals(c.getPosX()) && this.getPosY().equals(c.getPosY());
+	}
+	
+	public Boolean cubreElPunto(Double x, Double y){
+		return this.distancia(x,y) < this.carga;
 	}
 	
 	@Override
