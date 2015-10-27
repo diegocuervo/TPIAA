@@ -69,6 +69,20 @@ public class CampoDeJuego {
 		return false;
 	}
 	
+	public String informarPosicionesCargas(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("Posición de las cargas:\n");
+		Integer i = 0;
+		for (CargaPuntual carga : this.getCargas()) {
+			i++;
+			sb.append("Carga #" + i + "\n");
+			sb.append("\tPosX: " + carga.getPosX() + "\n");
+			sb.append("\tPosY: " + carga.getPosY() + "\n");
+		}
+		 
+		return sb.toString();
+	}
+	
 	public Double porcentajeCubiertoMonteCarlo(Integer muestras){
 		
 		List<Desplazamiento> puntosMuestreo = this.generarPuntosMuestreo(muestras);
