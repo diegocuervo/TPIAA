@@ -21,27 +21,38 @@ public class Main {
 		Integer iteraciones = Integer.parseInt(prop.getProperty("iteraciones"));
 		Integer muestrasMonteCarlo = Integer.parseInt(prop.getProperty("muestrasMonteCarlo"));
 		Integer tiempoEntreIteraciones = Integer.parseInt(prop.getProperty("tiempoEntreIteraciones"));
+		Double porcentajeDeCorte = new Double(prop.getProperty("porcentajeDeCorte"));
+		Boolean cortarPorPorcentaje = Boolean.parseBoolean(prop.getProperty("cortarPorPorcentaje"));
 		////////CARGO PROPERTIES////////////
 
 		////////////////SIMULACIÓN/////////////////
 		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto);
 		campo.dibujar();
 		
+		Integer cantIteraciones = 0;
 		for (int i = 0; i < iteraciones; i++) {
+			cantIteraciones++;
 	    	TimeUnit.SECONDS.sleep(tiempoEntreIteraciones);
 	    	campo.iterarCargas();
 			campo.actualizar();
+			
+			if (	cortarPorPorcentaje &&
+					campo.porcentajeCubiertoMonteCarlo(muestrasMonteCarlo).compareTo(porcentajeDeCorte) >= 0) {
+				break;
+			}
 		}
 		////////////////SIMULACIÓN/////////////////
 
-		/////////CÁLCULO DE ÁREA: MONTECARLO///////
+		/////////CÁLCULO DE ÁREA FINAL///////
 		Double porcentaje = campo.porcentajeCubiertoMonteCarlo(muestrasMonteCarlo);
 		System.out.println("El porcentaje cubierto del campo es:" + porcentaje);
-		/////////CÁLCULO DE ÁREA: MONTECARLO///////
+		System.out.println("La cantidad de iteraciones realizadas fue: " + cantIteraciones);
+		/////////CÁLCULO DE ÁREA FINAL///////
 		
 		PrintWriter writer = new PrintWriter("resultados.log");
 		writer.println(campo.informarPosicionesCargas());
-		writer.println("El porcentaje cubierto del campo es:" + porcentaje);
+		writer.println("El porcentaje cubierto del campo es: " + porcentaje);
+		writer.println("La cantidad de iteraciones realizadas fue: " + cantIteraciones);
 		writer.close();
 	}
 }
