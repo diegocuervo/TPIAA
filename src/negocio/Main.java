@@ -26,7 +26,7 @@ public class Main {
 		campo.dibujar();
 		
 		for (int i = 0; i < iteraciones; i++) {
-//	    	TimeUnit.SECONDS.sleep(1);
+	    	TimeUnit.SECONDS.sleep(1);
 	    	campo.iterarCargas();
 			campo.actualizar();
 		}
