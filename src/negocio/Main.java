@@ -23,11 +23,12 @@ public class Main {
 		Integer tiempoEntreIteraciones = Integer.parseInt(prop.getProperty("tiempoEntreIteraciones"));
 		Double porcentajeDeCorte = new Double(prop.getProperty("porcentajeDeCorte"));
 		Boolean cortarPorPorcentaje = Boolean.parseBoolean(prop.getProperty("cortarPorPorcentaje"));
+		Double factorDeplazamiento = new Double(prop.getProperty("factorDeplazamiento"));
 		////////CARGO PROPERTIES////////////
 
 		////////////////SIMULACIÓN/////////////////
 		StringBuilder sbAreas = new StringBuilder();
-		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto);
+		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto, factorDeplazamiento);
 		campo.dibujar();
 		
 		Integer cantIteraciones = 0;

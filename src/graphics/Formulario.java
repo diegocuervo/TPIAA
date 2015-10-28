@@ -63,8 +63,8 @@ public class Formulario extends JFrame implements ActionListener{
         	Double ancho =Double.parseDouble(textfield1.getText());
         	Double alto = Double.parseDouble(textfield2.getText());
         	Double radio = Double.parseDouble(textfield3.getText());
-        	CampoDeJuego cancha = new CampoDeJuego(radio,5,ancho, alto);
-        	cancha.dibujar();
+//        	CampoDeJuego cancha = new CampoDeJuego(radio,5,ancho, alto);
+//        	cancha.dibujar();
         }
     }
     

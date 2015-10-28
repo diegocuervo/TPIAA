@@ -11,7 +11,7 @@ public class CargaPuntual {
 	private Double posX;
 	private Double posY;
 	private static Double RADIO_CHICO = new Double(3);
-	private static Double FACTOR_DEPLAZAMIENTO = new Double(15);
+	private Double FACTOR_DEPLAZAMIENTO = new Double(1);
 	private Desplazamiento desplazamiento;
 	private Ellipse puntoCarga;
 	private Ellipse radio;
@@ -23,7 +23,7 @@ public class CargaPuntual {
 	 * Inicializa el campo en una posición al azar dentro del campo de juego con ancho y alto especificado
 	 * @param carga
 	 */
-	public CargaPuntual(Double carga, Double maxAncho, Double maxAlto) {
+	public CargaPuntual(Double carga, Double maxAncho, Double maxAlto, Double factorDesplazamiento) {
 		this.setCarga(carga);
 		this.setPosX(Math.random() * maxAncho);
 		this.setPosY(Math.random() * maxAlto);
@@ -40,6 +40,7 @@ public class CargaPuntual {
 		
 		this.maxAlto = maxAlto;
 		this.maxAncho = maxAncho;
+		this.FACTOR_DEPLAZAMIENTO = factorDesplazamiento;
 	}
 
 	public void dibujar(){
