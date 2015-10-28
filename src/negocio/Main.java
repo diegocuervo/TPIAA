@@ -26,6 +26,7 @@ public class Main {
 		////////CARGO PROPERTIES////////////
 
 		////////////////SIMULACIÓN/////////////////
+		StringBuilder sbAreas = new StringBuilder();
 		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto);
 		campo.dibujar();
 		
@@ -35,9 +36,10 @@ public class Main {
 	    	TimeUnit.SECONDS.sleep(tiempoEntreIteraciones);
 	    	campo.iterarCargas();
 			campo.actualizar();
-			
+			Double porcentajeCubierto = campo.porcentajeCubiertoMonteCarlo(muestrasMonteCarlo);
+			sbAreas.append("Área cubierta iteración " + i + ": " + porcentajeCubierto + "\n");
 			if (	cortarPorPorcentaje &&
-					campo.porcentajeCubiertoMonteCarlo(muestrasMonteCarlo).compareTo(porcentajeDeCorte) >= 0) {
+					porcentajeCubierto.compareTo(porcentajeDeCorte) >= 0) {
 				break;
 			}
 		}
@@ -51,6 +53,7 @@ public class Main {
 		
 		PrintWriter writer = new PrintWriter("resultados.log");
 		writer.println(campo.informarPosicionesCargas());
+		writer.println(sbAreas.toString());
 		writer.println("El porcentaje cubierto del campo es: " + porcentaje);
 		writer.println("La cantidad de iteraciones realizadas fue: " + cantIteraciones);
 		writer.close();
