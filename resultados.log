@@ -1,66 +1,109 @@
 Posición de las cargas:
 Carga #1
-	PosX: 0.0
-	PosY: 293.9631461598409
+	PosX: 368.112833854796
+	PosY: 590.6188050190482
 Carga #2
-	PosX: 280.41438313703094
+	PosX: 500.0
 	PosY: 750.0
 Carga #3
-	PosX: 307.7946462507905
-	PosY: 393.8581424293687
+	PosX: 0.0
+	PosY: 750.0
 Carga #4
-	PosX: 110.16892942930465
-	PosY: 449.41613252237715
+	PosX: 500.0
+	PosY: 151.32975011956458
 Carga #5
-	PosX: 351.36719281817335
-	PosY: 500.3635793000204
+	PosX: 0.0
+	PosY: 336.56213427042036
 Carga #6
-	PosX: 166.50654272668285
-	PosY: 48.23626185537823
+	PosX: 500.0
+	PosY: 547.0762710742689
 Carga #7
-	PosX: 148.29761738351078
-	PosY: 750.0
+	PosX: 295.57116642869084
+	PosY: 176.18621344469366
 Carga #8
-	PosX: 198.01931883854758
-	PosY: 583.147696912437
+	PosX: 167.2929659798756
+	PosY: 0.0
 Carga #9
-	PosX: 11.614958790020099
-	PosY: 750.0
+	PosX: 13.801443061668651
+	PosY: 132.0169415528912
 Carga #10
-	PosX: 304.477838332631
-	PosY: 183.62973936341226
+	PosX: 500.0
+	PosY: 336.8884746103009
 Carga #11
-	PosX: 0.0
-	PosY: 612.997527873368
+	PosX: 339.39434726090553
+	PosY: 405.1650966452027
 Carga #12
-	PosX: 168.3933666928225
-	PosY: 252.82775689115834
-Carga #13
-	PosX: 461.9917878017389
+	PosX: 136.30199592941403
 	PosY: 750.0
+Carga #13
+	PosX: 215.5032907955683
+	PosY: 567.2383539709444
 Carga #14
-	PosX: 0.0
-	PosY: 96.0320722961919
+	PosX: 118.56334171380071
+	PosY: 493.1349311249827
 Carga #15
-	PosX: 453.02068056697783
-	PosY: 234.38962733789782
+	PosX: 0.0
+	PosY: 549.2393714651739
 Carga #16
-	PosX: 500.0
-	PosY: 420.50555679996586
+	PosX: 302.3299804860662
+	PosY: 750.0
 Carga #17
-	PosX: 500.0
-	PosY: 43.154775057663265
+	PosX: 171.67460057777197
+	PosY: 307.1198937895045
 Carga #18
-	PosX: 420.85069886447246
-	PosY: 611.1696075342327
+	PosX: 366.0507575043544
+	PosY: 0.0
 
-Área cubierta iteración 0: 76.412
-Área cubierta iteración 1: 81.002
-Área cubierta iteración 2: 84.531
-Área cubierta iteración 3: 87.143
-Área cubierta iteración 4: 88.90599999999999
-Área cubierta iteración 5: 89.99000000000001
-Área cubierta iteración 6: 90.586
+Área cubierta iteración 0: 79.2506
+Área cubierta iteración 1: 81.052
+Área cubierta iteración 2: 81.9084
+Área cubierta iteración 3: 82.4068
+Área cubierta iteración 4: 82.6314
+Área cubierta iteración 5: 83.6476
+Área cubierta iteración 6: 83.9198
+Área cubierta iteración 7: 84.343
+Área cubierta iteración 8: 84.68900000000001
+Área cubierta iteración 9: 85.29679999999999
+Área cubierta iteración 10: 85.4392
+Área cubierta iteración 11: 85.4364
+Área cubierta iteración 12: 85.4746
+Área cubierta iteración 13: 85.75779999999999
+Área cubierta iteración 14: 85.654
+Área cubierta iteración 15: 84.82600000000001
+Área cubierta iteración 16: 86.0154
+Área cubierta iteración 17: 85.20020000000001
+Área cubierta iteración 18: 85.0856
+Área cubierta iteración 19: 85.828
+Área cubierta iteración 20: 86.1514
+Área cubierta iteración 21: 86.4524
+Área cubierta iteración 22: 86.9658
+Área cubierta iteración 23: 87.0776
+Área cubierta iteración 24: 87.2652
+Área cubierta iteración 25: 86.9674
+Área cubierta iteración 26: 87.19980000000001
+Área cubierta iteración 27: 87.32600000000001
+Área cubierta iteración 28: 86.921
+Área cubierta iteración 29: 87.471
+Área cubierta iteración 30: 87.43459999999999
+Área cubierta iteración 31: 87.5552
+Área cubierta iteración 32: 86.90520000000001
+Área cubierta iteración 33: 87.05659999999999
+Área cubierta iteración 34: 86.9882
+Área cubierta iteración 35: 86.8762
+Área cubierta iteración 36: 86.81060000000001
+Área cubierta iteración 37: 86.6366
+Área cubierta iteración 38: 86.8162
+Área cubierta iteración 39: 86.5402
+Área cubierta iteración 40: 86.5756
+Área cubierta iteración 41: 86.1554
+Área cubierta iteración 42: 86.2994
+Área cubierta iteración 43: 86.0628
+Área cubierta iteración 44: 86.3036
+Área cubierta iteración 45: 86.24300000000001
+Área cubierta iteración 46: 86.46979999999999
+Área cubierta iteración 47: 86.5164
+Área cubierta iteración 48: 86.5962
+Área cubierta iteración 49: 86.8514
 
-El porcentaje cubierto del campo es: 90.425
-La cantidad de iteraciones realizadas fue: 7
+El porcentaje cubierto del campo es: 86.7792
+La cantidad de iteraciones realizadas fue: 50
