@@ -48,7 +48,6 @@ public class Main {
 					porcentajeCubierto.compareTo(porcentajeDeCorte) >= 0) {
 				break;
 			}
-			System.in.read();
 		}
 		////////////////SIMULACIÓN/////////////////
 
