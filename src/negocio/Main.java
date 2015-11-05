@@ -26,6 +26,7 @@ public class Main {
 		Double porcentajeDeCorte = new Double(prop.getProperty("porcentajeDeCorte"));
 		Boolean cortarPorPorcentaje = Boolean.parseBoolean(prop.getProperty("cortarPorPorcentaje"));
 		Double factorDeplazamiento = new Double(prop.getProperty("factorDeplazamiento"));
+		String SEPARADOR = prop.getProperty("separadorCSV");
 		ArrayList<Double> porcentajesPorIteracion = new ArrayList<Double>();
 		ArrayList<Double> porcentajesDesperdiciadosPorIteracion = new ArrayList<Double>();
 		////////CARGO PROPERTIES////////////
@@ -71,8 +72,10 @@ public class Main {
 		writer.close();
 		
 		PrintWriter writerCSV = new PrintWriter("resultados.csv");
-		writerCSV	.append("Iteracion;")
-					.append("Porcentaje;")
+		writerCSV	.append("Iteracion")
+					.append(SEPARADOR)
+					.append("Porcentaje")
+					.append(SEPARADOR)
 					.append("PorcDesperd")
 					.append("\n");
 		
@@ -80,13 +83,13 @@ public class Main {
 		for (Double p : porcentajesPorIteracion) {
 			j++;
 			writerCSV.append(j.toString())
-					.append(";");
+					.append(SEPARADOR);
 			if (p.toString().length()>6) writerCSV.append(p.toString().substring(0, 6));
 			else if (p.toString().length() == 5) writerCSV.append(p.toString()).append("0");
 			else if (p.toString().length() == 4) writerCSV.append(p.toString()).append("00");
 			else writerCSV.append(p.toString());
 			
-			writerCSV.append(";");
+			writerCSV.append(SEPARADOR);
 			
 			String porcentajeDesp = porcentajesDesperdiciadosPorIteracion.get(j-1).toString();
 			if (porcentajeDesp.length()>6) writerCSV.append(porcentajeDesp.substring(0, 6));
