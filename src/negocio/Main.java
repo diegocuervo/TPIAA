@@ -1,5 +1,6 @@
 package negocio;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -12,7 +13,7 @@ public class Main {
 
 		////////CARGO PROPERTIES////////////
 		Properties prop = new Properties();
-		InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties");
+		InputStream input = new FileInputStream("config.properties");
 		prop.load(input);
 
 		Double carga = new Double(prop.getProperty("carga"));
@@ -43,7 +44,7 @@ public class Main {
 			Double porcentajeCubierto = campo.porcentajeCubiertoMonteCarlo(muestrasMonteCarlo);
 			porcentajesPorIteracion.add(porcentajeCubierto);
 			porcentajesDesperdiciadosPorIteracion.add(campo.porcentajeAreaDesperdiciada(porcentajeCubierto));
-			sbAreas.append("Área cubierta iteración " + i + ": " + porcentajeCubierto + "\n");
+			sbAreas.append("Área cubierta iteración " + i + ": " + porcentajeCubierto + "\r\n");
 			if (	cortarPorPorcentaje &&
 					porcentajeCubierto.compareTo(porcentajeDeCorte) >= 0) {
 				break;

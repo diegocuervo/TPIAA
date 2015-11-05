@@ -75,8 +75,8 @@ public class CampoDeJuego {
 		for (CargaPuntual carga : this.getCargas()) {
 			i++;
 			sb.append("Carga #" + i + "\n");
-			sb.append("\tPosX: " + carga.getPosX() + "\n");
-			sb.append("\tPosY: " + carga.getPosY() + "\n");
+			sb.append("\tPosX: " + carga.getPosX() + "\r\n");
+			sb.append("\tPosY: " + carga.getPosY() + "\r\n");
 		}
 		 
 		return sb.toString();
