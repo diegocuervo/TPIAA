@@ -93,6 +93,26 @@ public class CampoDeJuego {
 		return porcentaje;
 	}
 	
+	public Double porcentajeAreaDesperdiciada(Double porcentajeCubierto){
+		return (this.areaDesperdiciada(porcentajeCubierto) / this.areaMaxCubiertaPosible()) * 100;
+	}
+	
+	public Double areaDesperdiciada(Double porcentajeCubierto){
+		Double amcp = this.areaMaxCubiertaPosible();
+		Double ac = this.areaCubierta(porcentajeCubierto);
+		return amcp - ac;
+	}
+	
+	public Double areaCubierta(Double porcentajeCubierto){
+		return this.areaTotal() * porcentajeCubierto / new Double(100);
+	}
+	
+	public Double areaMaxCubiertaPosible(){
+		Double radio = this.cargas.get(0).getCarga();
+		Double cantidad = new Double(this.cargas.size());
+		return cantidad * Math.PI * radio*radio;
+	}
+	
 	private List<Desplazamiento> generarPuntosMuestreo(Integer cantidad){
 		
 		List<Desplazamiento> puntos = new ArrayList<Desplazamiento>();
@@ -117,11 +137,6 @@ public class CampoDeJuego {
 	
 	public Double areaTotal(){
 		return this.alto * this.ancho;
-	}
-	
-	public Double areaCubierta(){
-		//TODO
-		return null;
 	}
 	
 	/**

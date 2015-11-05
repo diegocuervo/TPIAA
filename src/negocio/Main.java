@@ -26,6 +26,7 @@ public class Main {
 		Boolean cortarPorPorcentaje = Boolean.parseBoolean(prop.getProperty("cortarPorPorcentaje"));
 		Double factorDeplazamiento = new Double(prop.getProperty("factorDeplazamiento"));
 		ArrayList<Double> porcentajesPorIteracion = new ArrayList<Double>();
+		ArrayList<Double> porcentajesDesperdiciadosPorIteracion = new ArrayList<Double>();
 		////////CARGO PROPERTIES////////////
 
 		////////////////SIMULACIÓN/////////////////
@@ -41,11 +42,13 @@ public class Main {
 			campo.actualizar();
 			Double porcentajeCubierto = campo.porcentajeCubiertoMonteCarlo(muestrasMonteCarlo);
 			porcentajesPorIteracion.add(porcentajeCubierto);
+			porcentajesDesperdiciadosPorIteracion.add(campo.porcentajeAreaDesperdiciada(porcentajeCubierto));
 			sbAreas.append("Área cubierta iteración " + i + ": " + porcentajeCubierto + "\n");
 			if (	cortarPorPorcentaje &&
 					porcentajeCubierto.compareTo(porcentajeDeCorte) >= 0) {
 				break;
 			}
+			System.in.read();
 		}
 		////////////////SIMULACIÓN/////////////////
 
@@ -61,21 +64,38 @@ public class Main {
 		writer.println(sbAreas.toString());
 		writer.println("El porcentaje cubierto del campo es: " + porcentaje);
 		writer.println("La cantidad de iteraciones realizadas fue: " + cantIteraciones);
+		writer.println("El área máxima teórica posible de cobetura es: " + campo.areaMaxCubiertaPosible());
+		writer.println("El área cubierta fue: " + campo.areaCubierta(porcentaje));
+		writer.println("El area de riego desperdiciada: " + campo.areaDesperdiciada(porcentaje));
+		writer.println("El porcentaje de area de riego desperdiciada: " + campo.porcentajeAreaDesperdiciada(porcentaje));
 		writer.close();
 		
 		PrintWriter writerCSV = new PrintWriter("resultados.csv");
-		writerCSV	.append("Iteracion")
-					.append(";")
-					.append("Porcentaje")
+		writerCSV	.append("Iteracion;")
+					.append("Porcentaje;")
+					.append("PorcDesperd")
 					.append("\n");
 		
 		Integer j = 0;
 		for (Double p : porcentajesPorIteracion) {
 			j++;
-			writerCSV.append(j.toString()).append(";");
+			writerCSV.append(j.toString())
+					.append(";");
 			if (p.toString().length()>6) writerCSV.append(p.toString().substring(0, 6));
+			else if (p.toString().length() == 5) writerCSV.append(p.toString()).append("0");
+			else if (p.toString().length() == 4) writerCSV.append(p.toString()).append("00");
 			else writerCSV.append(p.toString());
+			
+			writerCSV.append(";");
+			
+			String porcentajeDesp = porcentajesDesperdiciadosPorIteracion.get(j-1).toString();
+			if (porcentajeDesp.length()>6) writerCSV.append(porcentajeDesp.substring(0, 6));
+			else if (porcentajeDesp.length() == 5) writerCSV.append(porcentajeDesp).append("0");
+			else if (porcentajeDesp.length() == 4) writerCSV.append(porcentajeDesp).append("00");
+			else writerCSV.append(porcentajeDesp);
+			
 			writerCSV.append("\n");
+			
 		}
 		writerCSV.close();
 		/////////////////////////LOGS/////////////////////////////////////
