@@ -172,6 +172,10 @@ public class CargaPuntual {
 		return Math.sqrt(((this.posX - x)*(this.posX - x)) + ((this.posY - y)*(this.posY - y)));
 	}
 	
+	public Desplazamiento puntoComoDesplazamiento(){
+		return new Desplazamiento(this.getPosX(), this.getPosY());
+	}
+	
 	public Double areaCubierta(List<CargaPuntual> cargas){
 		//TODO
 		return null;

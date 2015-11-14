@@ -85,13 +85,22 @@ public class CampoDeJuego {
 	
 	public Double porcentajeCubiertoMonteCarlo(Integer muestras){
 		
-		List<Desplazamiento> puntosMuestreo = this.generarPuntosMuestreo(muestras);
-		
-		Integer cantidadCubierta = this.cantidadDePuntosCubierta(puntosMuestreo);
-		
-		Double porcentaje = (new Double(cantidadCubierta) / new Double(muestras)) * 100;
+//		List<Desplazamiento> puntosMuestreo = this.generarPuntosMuestreo(muestras);
+//		
+//		Integer cantidadCubierta = this.cantidadDePuntosCubierta(puntosMuestreo);
+//		
+//		Double porcentaje = (new Double(cantidadCubierta) / new Double(muestras)) * 100;
+//
+//		return porcentaje;
 
-		return porcentaje;
+		List<Desplazamiento> puntosAspersores = new ArrayList<Desplazamiento>();
+		
+		for (CargaPuntual carga : this.getCargas()) {
+			puntosAspersores.add(carga.puntoComoDesplazamiento());
+		}
+		
+		return CalculadorDeSuperficie.porcentajeCubiertoMonteCarlo(this.ancho, this.alto, muestras, 
+				this.cargas.get(0).getCarga(), puntosAspersores);
 	}
 	
 	public Double porcentajeAreaDesperdiciada(Double porcentajeCubierto){

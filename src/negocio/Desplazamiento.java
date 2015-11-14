@@ -28,6 +28,10 @@ public class Desplazamiento {
 		this.setX(x/a);
 		this.setY(y/a);
 	}
+	
+	public Double distancia(Double x, Double y){
+		return Math.sqrt(((this.x - x)*(this.x - x)) + ((this.y - y)*(this.y - y)));
+	}
 
 	/**
 	 * @return the x
