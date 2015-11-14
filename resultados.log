@@ -1,98 +1,104 @@
 Posición de las cargas:
 Carga #1
-	PosX: 500.0
-	PosY: 0.0
+	PosX: 80.58857977709545
+	PosY: 496.8022802944911
 Carga #2
-	PosX: 261.49553981437566
-	PosY: 282.92719184974266
+	PosX: 438.1678721988681
+	PosY: 322.20605879567944
 Carga #3
-	PosX: 441.5011261406201
-	PosY: 194.028499571717
+	PosX: 220.65950869226208
+	PosY: 642.0981474553581
 Carga #4
-	PosX: 266.40187434860206
-	PosY: 39.5638295460237
+	PosX: 203.0556290713882
+	PosY: 460.1178529769156
 Carga #5
-	PosX: 17.502568902840338
-	PosY: 0.0
+	PosX: 377.39206710261675
+	PosY: 668.1451128220696
 Carga #6
-	PosX: 0.0
-	PosY: 708.6971324229174
+	PosX: 201.7116894557319
+	PosY: 97.5377109739766
 Carga #7
-	PosX: 243.68404339253414
-	PosY: 731.2913308617905
+	PosX: 77.44564867294733
+	PosY: 663.2756118105528
 Carga #8
-	PosX: 500.0
-	PosY: 596.3905820580495
+	PosX: 309.73653964688026
+	PosY: 479.0090679895749
 Carga #9
-	PosX: 0.0
-	PosY: 373.00547089099183
+	PosX: 61.88103399822481
+	PosY: 318.06741648825727
 Carga #10
-	PosX: 321.6550825098314
-	PosY: 482.4897522428634
+	PosX: 190.61719607794527
+	PosY: 289.3031592825075
 Carga #11
-	PosX: 82.31329834102635
-	PosY: 190.39749368037093
+	PosX: 437.4768651921552
+	PosY: 141.85074257978752
 Carga #12
-	PosX: 125.9719329058474
-	PosY: 541.7073377650668
+	PosX: 70.9747767980889
+	PosY: 123.09176349816046
 Carga #13
-	PosX: 500.0
-	PosY: 391.8572937031556
+	PosX: 303.767098994163
+	PosY: 260.0624631852338
+Carga #14
+	PosX: 437.7714621626095
+	PosY: 530.0403344246174
+Carga #15
+	PosX: 321.09411410941516
+	PosY: 80.07572902952381
 
-Área cubierta iteración 0: 70.3392
-Área cubierta iteración 1: 72.4208
-Área cubierta iteración 2: 73.5184
-Área cubierta iteración 3: 74.1468
-Área cubierta iteración 4: 74.6552
-Área cubierta iteración 5: 75.2248
-Área cubierta iteración 6: 75.31020000000001
-Área cubierta iteración 7: 74.6018
-Área cubierta iteración 8: 74.7008
-Área cubierta iteración 9: 74.6254
-Área cubierta iteración 10: 74.018
-Área cubierta iteración 11: 74.6964
-Área cubierta iteración 12: 73.8112
-Área cubierta iteración 13: 74.2184
-Área cubierta iteración 14: 73.5958
-Área cubierta iteración 15: 73.7564
-Área cubierta iteración 16: 72.75319999999999
-Área cubierta iteración 17: 72.6014
-Área cubierta iteración 18: 72.7034
-Área cubierta iteración 19: 72.72420000000001
-Área cubierta iteración 20: 72.6712
-Área cubierta iteración 21: 72.433
-Área cubierta iteración 22: 72.34580000000001
-Área cubierta iteración 23: 72.5296
-Área cubierta iteración 24: 72.356
-Área cubierta iteración 25: 72.3218
-Área cubierta iteración 26: 71.91959999999999
-Área cubierta iteración 27: 71.6466
-Área cubierta iteración 28: 71.8142
-Área cubierta iteración 29: 71.6952
-Área cubierta iteración 30: 71.8412
-Área cubierta iteración 31: 72.19640000000001
-Área cubierta iteración 32: 72.2864
-Área cubierta iteración 33: 72.0184
-Área cubierta iteración 34: 72.0548
-Área cubierta iteración 35: 72.0296
-Área cubierta iteración 36: 72.28280000000001
-Área cubierta iteración 37: 72.0824
-Área cubierta iteración 38: 71.7418
-Área cubierta iteración 39: 72.0544
-Área cubierta iteración 40: 72.08099999999999
-Área cubierta iteración 41: 72.01859999999999
-Área cubierta iteración 42: 72.1034
-Área cubierta iteración 43: 72.122
-Área cubierta iteración 44: 71.9696
-Área cubierta iteración 45: 71.99980000000001
-Área cubierta iteración 46: 72.0376
-Área cubierta iteración 47: 71.977
-Área cubierta iteración 48: 71.9954
-Área cubierta iteración 49: 72.083
+Área cubierta iteración 0: 80.438
+Área cubierta iteración 1: 84.0592
+Área cubierta iteración 2: 85.21600000000001
+Área cubierta iteración 3: 86.2378
+Área cubierta iteración 4: 87.2188
+Área cubierta iteración 5: 88.364
+Área cubierta iteración 6: 89.402
+Área cubierta iteración 7: 90.4804
+Área cubierta iteración 8: 90.991
+Área cubierta iteración 9: 91.69279999999999
+Área cubierta iteración 10: 91.9408
+Área cubierta iteración 11: 92.44
+Área cubierta iteración 12: 92.4342
+Área cubierta iteración 13: 92.782
+Área cubierta iteración 14: 92.7488
+Área cubierta iteración 15: 93.0144
+Área cubierta iteración 16: 93.268
+Área cubierta iteración 17: 93.175
+Área cubierta iteración 18: 93.3358
+Área cubierta iteración 19: 93.208
+Área cubierta iteración 20: 93.2556
+Área cubierta iteración 21: 93.6072
+Área cubierta iteración 22: 93.47879999999999
+Área cubierta iteración 23: 93.7376
+Área cubierta iteración 24: 93.429
+Área cubierta iteración 25: 93.6306
+Área cubierta iteración 26: 93.9446
+Área cubierta iteración 27: 93.92099999999999
+Área cubierta iteración 28: 93.9288
+Área cubierta iteración 29: 93.55059999999999
+Área cubierta iteración 30: 93.9854
+Área cubierta iteración 31: 93.7892
+Área cubierta iteración 32: 94.1402
+Área cubierta iteración 33: 94.02380000000001
+Área cubierta iteración 34: 94.0494
+Área cubierta iteración 35: 93.935
+Área cubierta iteración 36: 93.7662
+Área cubierta iteración 37: 93.6906
+Área cubierta iteración 38: 93.8862
+Área cubierta iteración 39: 94.1212
+Área cubierta iteración 40: 94.0098
+Área cubierta iteración 41: 93.918
+Área cubierta iteración 42: 93.9452
+Área cubierta iteración 43: 94.1968
+Área cubierta iteración 44: 93.9922
+Área cubierta iteración 45: 93.67
+Área cubierta iteración 46: 94.2004
+Área cubierta iteración 47: 94.233
+Área cubierta iteración 48: 93.9492
+Área cubierta iteración 49: 93.4868
 
-El porcentaje cubierto del campo es: 72.1234
+El porcentaje cubierto del campo es: 93.5706
 La cantidad de iteraciones realizadas fue: 50
-El área máxima teórica posible de cobetura es: 408407.04496667313
-El área cubierta fue: 270462.75
-El area de riego desperdiciada: 137944.29496667313
-El porcentaje de area de riego desperdiciada: 33.776179100419206
+El área máxima teórica posible de cobetura es: 471238.89803846896
+El área cubierta fue: 350889.75
+El area de riego desperdiciada: 120349.14803846896
+El porcentaje de area de riego desperdiciada: 25.53888240962749

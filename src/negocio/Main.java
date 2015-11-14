@@ -26,6 +26,7 @@ public class Main {
 		Double porcentajeDeCorte = new Double(prop.getProperty("porcentajeDeCorte"));
 		Boolean cortarPorPorcentaje = Boolean.parseBoolean(prop.getProperty("cortarPorPorcentaje"));
 		Double factorDeplazamiento = new Double(prop.getProperty("factorDeplazamiento"));
+		Double factorDesplazamientoParedes = new Double(prop.getProperty("factorDesplazamientoParedes"));
 		String SEPARADOR = prop.getProperty("separadorCSV");
 		ArrayList<Double> porcentajesPorIteracion = new ArrayList<Double>();
 		ArrayList<Double> porcentajesDesperdiciadosPorIteracion = new ArrayList<Double>();
@@ -33,7 +34,7 @@ public class Main {
 
 		////////////////SIMULACIÓN/////////////////
 		StringBuilder sbAreas = new StringBuilder();
-		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto, factorDeplazamiento);
+		CampoDeJuego campo = new CampoDeJuego(carga, cantCargas, ancho, alto, factorDeplazamiento, factorDesplazamientoParedes);
 		campo.dibujar();
 		
 		Integer cantIteraciones = 0;

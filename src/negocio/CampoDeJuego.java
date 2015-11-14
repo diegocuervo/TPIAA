@@ -21,11 +21,12 @@ public class CampoDeJuego {
 	 * @param ancho
 	 * @param alto
 	 */
-	public CampoDeJuego(Double carga, Integer cantidadCargas, Double ancho, Double alto, Double factorDesplazamiento) {
+	public CampoDeJuego(Double carga, Integer cantidadCargas, Double ancho, Double alto,
+			Double factorDesplazamiento, Double factorDesplazamientoParedes) {
 		
 		this.setCargas(new ArrayList<CargaPuntual>());
 		for (int i = 0; i < cantidadCargas; i++) {
-			CargaPuntual cp = new CargaPuntual(carga, ancho, alto, factorDesplazamiento);
+			CargaPuntual cp = new CargaPuntual(carga, ancho, alto, factorDesplazamiento, factorDesplazamientoParedes);
 			this.getCargas().add(cp);
 		}
 		this.setAlto(alto);

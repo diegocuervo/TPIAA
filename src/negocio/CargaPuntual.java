@@ -11,7 +11,8 @@ public class CargaPuntual {
 	private Double posX;
 	private Double posY;
 	private static Double RADIO_CHICO = new Double(3);
-	private Double FACTOR_DEPLAZAMIENTO = new Double(1);
+	private Double FACTOR_DESPLAZAMIENTO = new Double(1);
+	private Double FACTOR_DESPLAZAMIENTO_PAREDES = new Double(1);
 	private Desplazamiento desplazamiento;
 	private Ellipse puntoCarga;
 	private Ellipse radio;
@@ -23,7 +24,8 @@ public class CargaPuntual {
 	 * Inicializa el campo en una posición al azar dentro del campo de juego con ancho y alto especificado
 	 * @param carga
 	 */
-	public CargaPuntual(Double carga, Double maxAncho, Double maxAlto, Double factorDesplazamiento) {
+	public CargaPuntual(Double carga, Double maxAncho, Double maxAlto, 
+			Double factorDesplazamiento, Double factorDesplazamientoParedes) {
 		this.setCarga(carga);
 		this.setPosX(Math.random() * maxAncho);
 		this.setPosY(Math.random() * maxAlto);
@@ -40,7 +42,8 @@ public class CargaPuntual {
 		
 		this.maxAlto = maxAlto;
 		this.maxAncho = maxAncho;
-		this.FACTOR_DEPLAZAMIENTO = factorDesplazamiento;
+		this.FACTOR_DESPLAZAMIENTO = factorDesplazamiento;
+		this.FACTOR_DESPLAZAMIENTO_PAREDES = factorDesplazamientoParedes;
 	}
 
 	public void dibujar(){
@@ -64,17 +67,19 @@ public class CargaPuntual {
 	
 	public void calcularDeplazamiento(List<CargaPuntual> cargas){
 		
-		Desplazamiento despl = new Desplazamiento(new Double(0), new Double(0));
+		Desplazamiento despl = this.desplazamientoPorParedes(this.maxAlto, this.maxAncho);
 		
 		for (CargaPuntual cargaPuntual : cargas) {
 			if (!this.equals(cargaPuntual) && estaDentroDelRadio(cargaPuntual)) {
 				Desplazamiento d = this.versorDireccionOtraCarga(cargaPuntual);
 				d.multiplicar(cargaPuntual.carga);
 				d.dividir(this.distancia(cargaPuntual));
-				d.multiplicar(FACTOR_DEPLAZAMIENTO);
+				d.multiplicar(FACTOR_DESPLAZAMIENTO);
 				despl.sumar(d);
 			}
 		}
+		
+		//Restringido al área del campo
 		
 		if (this.posX + this.desplazamiento.getX() > this.maxAncho) {
 			this.desplazamiento.setX(this.maxAncho - this.posX);
@@ -123,6 +128,38 @@ public class CargaPuntual {
 		return new Desplazamiento(despX, despY);
 	}
 	
+	private Desplazamiento desplazamientoPorParedes(Double alto, Double ancho){
+		
+		Desplazamiento despl = new Desplazamiento(new Double(0), new Double(0));
+		
+		//ABAJO
+		Desplazamiento d1 = new Desplazamiento(new Double(0), new Double(1));
+		d1.multiplicar(this.carga);
+		d1.multiplicar(FACTOR_DESPLAZAMIENTO_PAREDES);
+		d1.dividir(this.posY);
+		despl.sumar(d1);
+		//ARRIBA
+		Desplazamiento d2 = new Desplazamiento(new Double(0), new Double(-1));
+		d2.multiplicar(this.carga);
+		d2.multiplicar(FACTOR_DESPLAZAMIENTO_PAREDES);
+		d2.dividir(this.maxAlto - this.posY);
+		despl.sumar(d2);
+		//IZQUIERDA
+		Desplazamiento d3 = new Desplazamiento(new Double(1), new Double(0));
+		d3.multiplicar(this.carga);
+		d3.multiplicar(FACTOR_DESPLAZAMIENTO_PAREDES);
+		d3.dividir(this.posX);
+		despl.sumar(d3);
+		//DERECHA
+		Desplazamiento d4 = new Desplazamiento(new Double(-1), new Double(0));
+		d4.multiplicar(this.carga);
+		d4.multiplicar(FACTOR_DESPLAZAMIENTO_PAREDES);
+		d4.dividir(this.maxAncho - this.posX);		
+		despl.sumar(d4);
+		
+		return despl;
+	}
+	
 	private Boolean estaDentroDelRadio(CargaPuntual cp){
 		return this.distancia(cp) < 2*this.carga;
 	}
@@ -133,7 +170,6 @@ public class CargaPuntual {
 	
 	public Double distancia(Double x, Double y){
 		return Math.sqrt(((this.posX - x)*(this.posX - x)) + ((this.posY - y)*(this.posY - y)));
-
 	}
 	
 	public Double areaCubierta(List<CargaPuntual> cargas){
