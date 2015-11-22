@@ -127,4 +127,8 @@ public class Text implements Shape
             }
         }
     }
+    
+    public JLabel getLabel(){
+    	return this.label;
+    }
 }

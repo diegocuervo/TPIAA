@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-import negocio.CalculadorDeSuperficie;
+import graphics.Text;
 import negocio.Desplazamiento;
 
 public class MainGenetico {
@@ -43,10 +43,8 @@ public class MainGenetico {
 			Cromosoma c = new Cromosoma(cantAspersores, ancho, alto, muestrasMonteCarlo, radio);
 			
 			for (int j = 0; j < cantAspersores; j++) {
-				
 				Double altoNuevo = new Double(Math.random() * alto);
 				Double anchoNuevo = new Double(Math.random() * alto);
-				
 				
 				Gen g = new Gen(anchoNuevo, altoNuevo, radio);
 				c.getGenes().add(g);
@@ -56,8 +54,23 @@ public class MainGenetico {
 		///////////GENERAR POBLACION INICIAL///////////////
 		
 		////////////////////SIMULACION///////////////////
+
+		Text ejecutando = new Text(0, 0, "Ejecutando...");
+		ejecutando.grow(200, 100);
+		ejecutando.translate(200, 100);
 		
+		
+		Text iteracion = new Text(0,0, "");
+		iteracion.grow(200, 100);
+		iteracion.translate(200, 300);
+		
+		ejecutando.draw();
 		for (int i = 0; i < iteraciones; i++) {
+			
+			int it = i+1;
+			iteracion.getLabel().setText("Iteración " + it);
+			iteracion.draw();
+			
 			List<Cromosoma> seleccionados = seleccionar(poblacion, cantASeleccionar);
 			
 			List<Cromosoma> poblacionCruzada = cruzar(seleccionados, tamanoPoblacion, 
@@ -94,14 +107,12 @@ public class MainGenetico {
 			else if (c.getAptitud().toString().length() == 5) writerCSV.append(c.getAptitud().toString()).append("0");
 			else if (c.getAptitud().toString().length() == 4) writerCSV.append(c.getAptitud().toString()).append("00");
 			else writerCSV.append(c.getAptitud().toString());
-			
 			writerCSV.append("\n");
 			
 		}
 		writerCSV.close();
 
 		mejorIndividuo(mejoresPorIteracion).dibujar();
-		
 		/////////////////////////LOGS/////////////////////////////////////
 
 	}
