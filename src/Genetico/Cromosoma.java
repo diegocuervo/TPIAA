@@ -57,12 +57,12 @@ public class Cromosoma implements Comparable<Cromosoma>{
 	
 	public Double getAptitud(){
 		
-		if (this.getAptitud() == null) {
+		if (this.aptitud == null) {
 			this.setAptitud(CalculadorDeSuperficie
 				.porcentajeCubiertoMonteCarlo(ancho, alto, cantMuestras, radio, this.puntosAspersores()));
 		}
 		
-		return this.getAptitud();
+		return this.aptitud;
 	}
 	
 
@@ -117,9 +117,9 @@ public class Cromosoma implements Comparable<Cromosoma>{
 		int result = 0;
 		
 		if (this.getAptitud() > o.getAptitud()) {
-			result = 1;
-		} else if (this.getAptitud() < o.getAptitud()){
 			result = -1;
+		} else if (this.getAptitud() < o.getAptitud()){
+			result = 1;
 		}
 		
 		return result;
