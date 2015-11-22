@@ -3,28 +3,30 @@ package Genetico;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jgap.Chromosome;
-import org.jgap.Configuration;
-import org.jgap.impl.DefaultConfiguration;
+import negocio.CalculadorDeSuperficie;
+import negocio.Desplazamiento;
 
-public class Cromosoma {
+public class Cromosoma implements Comparable<Cromosoma>{
 
 	private List<Gen> genes;
 	private int cantAspersores;
+	private Double ancho;
+	private Double alto;
+	private Integer cantMuestras;
+	private Double radio;
+	private Double aptitud;
 	
-	public Cromosoma(int cantidadAspersores){
-		genes= new ArrayList<Gen>();
-		cantAspersores=cantidadAspersores;
-		
+	public Cromosoma(int cantidadAspersores, Double ancho, Double alto, Integer cantMuestras, Double radio) {
+		this.genes = new ArrayList<Gen>();
+		this.cantAspersores = cantidadAspersores;
+		this.setAncho(ancho);
+		this.setAlto(alto);
+		this.setCantMuestras(cantMuestras);
+		this.setRadio(radio);
+		this.setAptitud(null);
 	}
 
 	
-	public void crearCromosoma()throws Exception{
-	Configuration conf = new DefaultConfiguration();
-	Chromosome sampleChromosome = new Chromosome(conf,(Gen[])genes.toArray());
-	  conf.setSampleChromosome( sampleChromosome );
-}
-
 	public List<Gen> getGenes() {
 		return genes;
 	}
@@ -43,7 +45,95 @@ public class Cromosoma {
 	public void setCantAspersores(int cantAspersores) {
 		this.cantAspersores = cantAspersores;
 	}
-
 	
+	public List<Desplazamiento> puntosAspersores(){
+		List<Desplazamiento> despl = new ArrayList<Desplazamiento>();
+		
+		for (Gen gen : genes) {
+			despl.add(gen.getDesplazamiento());
+		}
+		return despl;
+	}
+	
+	public Double getAptitud(){
+		
+		if (this.getAptitud() == null) {
+			this.setAptitud(CalculadorDeSuperficie
+				.porcentajeCubiertoMonteCarlo(ancho, alto, cantMuestras, radio, this.puntosAspersores()));
+		}
+		
+		return this.getAptitud();
+	}
+	
+
+	public Double getAncho() {
+		return ancho;
+	}
+
+
+	public void setAncho(Double ancho) {
+		this.ancho = ancho;
+	}
+
+
+	public Double getAlto() {
+		return alto;
+	}
+
+
+	public void setAlto(Double alto) {
+		this.alto = alto;
+	}
+
+
+	public Integer getCantMuestras() {
+		return cantMuestras;
+	}
+
+
+	public void setCantMuestras(Integer cantMuestras) {
+		this.cantMuestras = cantMuestras;
+	}
+
+
+	public Double getRadio() {
+		return radio;
+	}
+
+
+	public void setRadio(Double radio) {
+		this.radio = radio;
+	}
+
+
+	public void setAptitud(Double aptitud) {
+		this.aptitud = aptitud;
+	}
+
+
+	@Override
+	public int compareTo(Cromosoma o) {
+//		YO menor igual o mayor
+		int result = 0;
+		
+		if (this.getAptitud() > o.getAptitud()) {
+			result = 1;
+		} else if (this.getAptitud() < o.getAptitud()){
+			result = -1;
+		}
+		
+		return result;
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
