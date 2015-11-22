@@ -10,7 +10,6 @@ import java.util.Random;
 
 import negocio.CalculadorDeSuperficie;
 import negocio.Desplazamiento;
-import sun.security.x509.GeneralName;
 
 public class MainGenetico {
 	public static void main(String[] args) throws Exception {
@@ -49,7 +48,7 @@ public class MainGenetico {
 				Double anchoNuevo = new Double(Math.random() * alto);
 				
 				
-				Gen g = new Gen(anchoNuevo, altoNuevo);
+				Gen g = new Gen(anchoNuevo, altoNuevo, radio);
 				c.getGenes().add(g);
 			}
 			poblacion.add(c);
@@ -101,6 +100,7 @@ public class MainGenetico {
 		}
 		writerCSV.close();
 
+		mejorIndividuo(mejoresPorIteracion).dibujar();
 		
 		/////////////////////////LOGS/////////////////////////////////////
 

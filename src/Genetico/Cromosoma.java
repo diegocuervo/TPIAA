@@ -3,6 +3,9 @@ package Genetico;
 import java.util.ArrayList;
 import java.util.List;
 
+import graphics.Canvas;
+import graphics.Color;
+import graphics.Rectangle;
 import negocio.CalculadorDeSuperficie;
 import negocio.Desplazamiento;
 
@@ -15,6 +18,8 @@ public class Cromosoma implements Comparable<Cromosoma>{
 	private Integer cantMuestras;
 	private Double radio;
 	private Double aptitud;
+	private Rectangle rect;
+	private Boolean dibujado = false;
 	
 	public Cromosoma(int cantidadAspersores, Double ancho, Double alto, Integer cantMuestras, Double radio) {
 		this.genes = new ArrayList<Gen>();
@@ -24,6 +29,7 @@ public class Cromosoma implements Comparable<Cromosoma>{
 		this.setCantMuestras(cantMuestras);
 		this.setRadio(radio);
 		this.setAptitud(null);
+		this.rect = new Rectangle(0,0,ancho,alto);
 	}
 
 	
@@ -108,6 +114,22 @@ public class Cromosoma implements Comparable<Cromosoma>{
 
 	public void setAptitud(Double aptitud) {
 		this.aptitud = aptitud;
+	}
+	
+	public void dibujar(){
+		
+		if (!dibujado) {
+			rect.draw();
+			rect.setColor(new Color(0, 100, 0));
+			rect.fill();
+			dibujado = true;
+		}
+
+
+		for (Gen gen : genes) {
+			gen.dibujar();
+		}
+		
 	}
 
 
